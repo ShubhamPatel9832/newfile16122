@@ -10,6 +10,7 @@ loadCardsBtn.addEventListener("click", function () {
 
 // ( CallBack Hell )
 function fetchCountryData_AJAX(countryName) {
+  countryCount = 1;
   const url_name = `${baseUrl}/name/${countryName}`;
 
   // AJAX CALL 1
@@ -23,7 +24,7 @@ function fetchCountryData_AJAX(countryName) {
     const neighbourAlpha1 = countryData1.borders.at(0);
 
     // Display Card ( Country 1 )
-    displayCountryCard(countryData1);
+    displayCountryCard(countryData1, countryCount);
 
     // AJAX CALL 2
     const url_alpha1 = `${baseUrl}/alpha/${neighbourAlpha1}`;
@@ -37,7 +38,7 @@ function fetchCountryData_AJAX(countryName) {
       const neighbourAlpha2 = countryData2.borders.at(0);
 
       // Display Card ( Country 2 )
-      displayCountryCard(countryData2);
+      displayCountryCard(countryData2, countryCount++);
 
       // AJAX CALL 3
       const url_alpha2 = `${baseUrl}/alpha/${neighbourAlpha2}`;
@@ -51,7 +52,7 @@ function fetchCountryData_AJAX(countryName) {
         const neighbourAlpha3 = countryData3.borders.at(0);
 
         // Display Card ( Country 2 )
-        displayCountryCard(countryData3);
+        displayCountryCard(countryData3, countryCount++);
       });
     });
   });
@@ -84,7 +85,7 @@ function createCountryCard(countryData) {
   const countryCard = document.createElement("article");
   countryCard.classList.add("country__card");
   countryCard.innerHTML = `
-                <span class="token">Country 1</span>
+                <span class="token"> Country ${countryCount}</span>
                 <img class="country__img"
                     src="${flag}" />
                 <div class="country__data">
