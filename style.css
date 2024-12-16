@@ -1,0 +1,14 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  height: 20rem;
+  width: 15rem;
+  border: 3px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
